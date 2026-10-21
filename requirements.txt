@@ -1,0 +1,6 @@
+# 我们只用 OpenAI 官方 SDK，因为它支持自定义 base_url，
+# 几乎所有兼容 OpenAI 协议的模型服务商（DeepSeek、通义千问、各类中转站等）都能用它接入。
+openai>=1.0.0
+
+# 用来从 .env 文件读取 API Key 等配置，避免把密钥写死在代码里。
+python-dotenv>=1.0.0
