@@ -11,3 +11,8 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 # ddgs 提供免费的网页搜索（基于 DuckDuckGo），无需申请任何 API key。
 ddgs>=9.0.0
+
+# 第 8 课：MCP 协议
+# 官方 MCP Python SDK，用来把工具包装成标准 MCP Server，供 Cursor/Claude 等调用。
+# 固定到 1.x：该系列提供 FastMCP API，与主流文档和 Cursor 接入方式一致（2.x 做了不兼容改名）。
+mcp[cli]>=1.2,<2
