@@ -37,6 +37,10 @@ Agent 只有 4 个零件：
 | `01_minimal_agent.py` | 最小对话循环 | 大脑 + 记忆 + 循环；messages 如何逐轮变长 |
 | `02_agent_with_tools.py` | 工具调用 (Function Calling) | 模型如何决定调工具；tool_calls / role=tool |
 | `03_multistep_agent.py` | 多步推理 | 走一步看结果再走下一步；步数上限安全阀 |
+| `04_file_agent.py` | 真实世界工具（文件读写） | 让 agent 读写本地文件；沙箱安全边界 |
+| `agent_core.py` + `05_refactored_agent.py` | 工程化重构 | 抽象出可复用 Agent 类；`@agent.tool` 装饰器从函数自动生成 schema（内省） |
+| `06_streaming_agent.py` | 流式输出 | 逐字蹦字（`stream=True`）；流式下工具调用碎片的拼接还原 |
+| `07_web_agent.py` | 联网工具 | 网页抓取（requests+bs4）与搜索（ddgs）；超时/异常/截断等健壮性处理 |
 
 > 🏆 **里程碑**：学完前 3 课，你已经手搓出了一个完整 agent 的内核。
 > 所有主流框架（LangChain / AutoGen / CrewAI）剥到最底层，就是这三份代码做的事。

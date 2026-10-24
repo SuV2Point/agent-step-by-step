@@ -4,3 +4,10 @@ openai>=1.0.0
 
 # 用来从 .env 文件读取 API Key 等配置，避免把密钥写死在代码里。
 python-dotenv>=1.0.0
+
+# 第 7 课：联网工具
+# requests 用来发 HTTP 请求抓网页；beautifulsoup4 用来把 HTML 清洗成纯文本。
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+# ddgs 提供免费的网页搜索（基于 DuckDuckGo），无需申请任何 API key。
+ddgs>=9.0.0
