@@ -3,13 +3,13 @@
     "my-first-agent-tools": {
       "command": "d:\\Data\\Project\\github\\agent-step-by-step\\.venv\\Scripts\\python.exe",
       "args": [
-        "d:\\Data\\Project\\github\\agent-step-by-step\\08_mcp_server.py"
+        "d:\\Data\\Project\\github\\agent-step-by-step\\lessons\\08_mcp\\08_mcp_server.py"
       ]
     },
     "agent-course-tools": {
       "command": "d:\\Data\\Project\\github\\agent-step-by-step\\.venv\\Scripts\\python.exe",
       "args": [
-        "d:\\Data\\Project\\github\\agent-step-by-step\\09_mcp_advanced.py"
+        "d:\\Data\\Project\\github\\agent-step-by-step\\lessons\\09_mcp_advanced\\09_mcp_advanced.py"
       ]
     }
   }

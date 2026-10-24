@@ -32,7 +32,7 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("my-first-agent-tools")
 
 # 沿用第 4 课的沙箱思路：文件操作限制在 workspace 目录内
-WORKSPACE = (Path(__file__).parent / "workspace").resolve()
+WORKSPACE = (Path(__file__).resolve().parents[2] / "workspace").resolve()
 WORKSPACE.mkdir(exist_ok=True)
 
 

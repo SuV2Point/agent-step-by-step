@@ -1,26 +1,31 @@
 """
 ========================================================================
-第 6 个 Agent：流式输出（Streaming）
+第 5 个 Agent：用重构后的 agent_core 库来写
 ========================================================================
 
-对应第 6 课。和第 5 课功能一样，但回答会【逐字蹦出来】，
-就像 ChatGPT 那样，体验好很多。
+对应第 5 课。注意看：用了 agent_core 后，
+原来每课几百行的样板代码，现在加一个工具只要「函数 + @agent.tool」。
 
-核心变化只有一处：把 agent.chat(...) 换成 agent.chat_stream(...)。
-流式的所有复杂逻辑（逐字打印 + 工具调用碎片拼接）都封装在
-agent_core.py 的 _run_loop_stream 里了。
-
-试试：
-  - 「写一首关于秋天的短诗」          -> 看它逐字蹦出（纯文字，无工具）
-  - 「现在几点？再帮我算 999*888」     -> 看流式下工具调用照样正常工作
+对比一下：
+  - 第 2 课：定义函数 + 塞进字典 + 手写一大段 JSON schema（3 处）
+  - 第 5 课：定义函数 + 一个 @agent.tool 装饰器（1 处，schema 全自动）
 """
 
+import sys
 from datetime import datetime
+from pathlib import Path
+
+# agent_core.py 放在项目根目录作为共享核心库。
+# 无论从哪个目录运行本文件，都先把项目根目录加入模块搜索路径，确保能导入它。
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from agent_core import Agent
 
+# 创建一个 agent，设定人设
 agent = Agent(system_prompt="你是一个中文助手，需要时请使用工具。")
 
+
+# ---- 注册工具：只要加个 @agent.tool，函数、注册、schema 全自动搞定 ----
 
 @agent.tool
 def calculator(expression: str) -> str:
@@ -39,9 +44,8 @@ def get_current_time() -> str:
 
 def main():
     print("=" * 55)
-    print("🤖 流式输出 Agent（回答会逐字蹦出来）")
-    print("   试试：『写一首关于秋天的短诗』")
-    print("   或：『现在几点？再帮我算 999*888』")
+    print("🤖 重构版 Agent（基于 agent_core 库）")
+    print("   功能和前几课一样，但核心逻辑全在 agent_core.py 里")
     print("   输入 quit 退出。")
     print("=" * 55)
 
@@ -53,8 +57,8 @@ def main():
         if not user_input:
             continue
 
-        # 唯一变化：用 chat_stream 代替 chat
-        agent.chat_stream(user_input)
+        answer = agent.chat(user_input)
+        print(f"🤖 助手: {answer}")
 
 
 if __name__ == "__main__":

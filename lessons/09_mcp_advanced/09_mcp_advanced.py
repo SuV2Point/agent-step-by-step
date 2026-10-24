@@ -24,7 +24,7 @@ from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("agent-course-tools")
 
-WORKSPACE = (Path(__file__).parent / "workspace").resolve()
+WORKSPACE = (Path(__file__).resolve().parents[2] / "workspace").resolve()
 WORKSPACE.mkdir(exist_ok=True)
 
 

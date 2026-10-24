@@ -17,9 +17,15 @@
   - 「搜索一下 Python 是什么，给我总结」
 """
 
+import sys
+from pathlib import Path
+
 import requests
 from bs4 import BeautifulSoup
 from ddgs import DDGS
+
+# agent_core.py 在项目根目录，先把根目录加入模块搜索路径。
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from agent_core import Agent
 

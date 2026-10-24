@@ -41,7 +41,7 @@ client = OpenAI(base_url=BASE_URL, api_key=API_KEY)
 # 🛡️ 沙箱：所有文件操作都被限制在这个目录内
 # ======================================================================
 # WORKSPACE 是 agent 唯一被允许操作的根目录（本脚本同级的 workspace 文件夹）。
-WORKSPACE = (Path(__file__).parent / "workspace").resolve()
+WORKSPACE = (Path(__file__).resolve().parents[2] / "workspace").resolve()
 WORKSPACE.mkdir(exist_ok=True)  # 不存在就自动创建
 
 
