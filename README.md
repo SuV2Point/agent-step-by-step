@@ -42,6 +42,7 @@ Agent 只有 4 个零件：
 | `06_streaming_agent.py` | 流式输出 | 逐字蹦字（`stream=True`）；流式下工具调用碎片的拼接还原 |
 | `07_web_agent.py` | 联网工具 | 网页抓取（requests+bs4）与搜索（ddgs）；超时/异常/截断等健壮性处理 |
 | `08_mcp_server.py` | MCP 协议 | 用 FastMCP 把工具包装成标准 MCP Server，供 Cursor/Claude 等任意客户端调用 |
+| `09_mcp_advanced.py` | MCP 进阶 | 补齐 Resources（只读数据，≈GET）与 Prompts（提示模板）；厘清 Tool/Resource 区别 |
 
 > 🏆 **里程碑**：学完前 3 课，你已经手搓出了一个完整 agent 的内核。
 > 所有主流框架（LangChain / AutoGen / CrewAI）剥到最底层，就是这三份代码做的事。
